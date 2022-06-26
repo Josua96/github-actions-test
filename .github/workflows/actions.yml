@@ -9,7 +9,13 @@ jobs:
       - name: List Files
         run: |
           pwd
-          ls 
+          ls -a
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: List Files after checkouts
+        run: |
+          pwd
+          ls -a
       - name: Simple JS Action
       # Giving an id to the step so it can be referenced from another step.
         id: greet 
