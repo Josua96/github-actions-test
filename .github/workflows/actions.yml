@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Printing payload
-        run: echo ${{github.event.client_payload}}
+        run: echo ${{github.event.client_payload.unit}}
       - name: List Files
         run: |
           pwd
