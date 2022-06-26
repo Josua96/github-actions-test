@@ -12,3 +12,9 @@ jobs:
         run: |
           node -v
           npm -v
+      # executing a python command, python is pre-installed in the virtual machine
+      - name: python command
+        run: |
+          import platform
+          print(platform.processor())
+        shell: python
