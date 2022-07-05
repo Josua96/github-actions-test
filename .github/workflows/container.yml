@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     # container here
     container: 
-      image: node:14-alpine3-16
+      image: node:14-alpine3.16
     steps:
       - name: Log node version
         run: |
