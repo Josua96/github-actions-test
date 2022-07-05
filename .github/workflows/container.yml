@@ -2,6 +2,26 @@ name: Container
 
 on: push
 jobs:
+  docker-steps:
+    runs-on: ubuntu-latest
+    container:
+      image: node:10.18.0-jessie
+    steps:
+      - name: Log node version
+        run: |
+          node -v
+      - name: Step with docker
+        uses: docker://node:12.14.1-alpine3.10
+        ## overriding the entrypoint for the image by using the with key
+        with:
+          entrypoint: '/bin/echo'
+          args: 'Hello world'
+      - name: Log node version
+        uses: docker://node:12.14.1-alpine3.10
+        ## overriding the entrypoint for the image by using the with key
+        with:
+          entrypoint: /usr/local/bin/node
+          args: -v
   node-docker:
     runs-on: ubuntu-latest
     # container here
