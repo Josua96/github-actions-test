@@ -22,6 +22,15 @@ jobs:
         with:
           entrypoint: /usr/local/bin/node
           args: -v
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Run a script
+        uses: docker://node:12.14.1-alpine3.10
+        ## overriding the entrypoint for the image by using the with key
+        with:
+          ## the container will run the script as the entrypoint
+          entrypoint: ./script.sh
+          args: "Some string"
   node-docker:
     runs-on: ubuntu-latest
     # container here
